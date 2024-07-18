@@ -1,0 +1,43 @@
+{if="$teams"}
+<table class="team_shortcodes">
+  <tr>
+    <td colspan="3">
+      <h2>Shortcodes per team</h2>
+    </td>
+  </tr>
+  <tr>
+    <th align="left">Team ID</th>
+    <th align="left">Team naam</th>
+    <th align="left">Beschikbare shortcodes per team</th>
+  </tr>
+  {loop="$teams"}
+  <tr>
+    <td width="25%" valign="top">
+      <p>{$value->teamid}</p>
+    </td>
+    <td width="25%" valign="top">
+      <p>{$value->teamname}</p>
+    </td>
+    <td width="50%" valign="top">
+      <pre>[membro-sportlink-team list="{$value->teamid}"]</pre>
+      <pre>[membro-sportlink uri="/teams/{$value->teamid}/results"]</pre>
+      <pre>[membro-sportlink uri="/teams/{$value->teamid}/schedule"]</pre>
+      <pre>[membro-sportlink uri="/teams/{$value->teamid}/ranking"]</pre>
+      {loop="$value->competities"}
+      <pre>[membro-sportlink uri="/competities/{$value->TeamId}/{$value->District}/{$value->CompId}/{$value->ClassId}/{$value->PouleId}/results"]</pre>
+      {/loop}
+      {loop="$value->competities"}
+      <pre>[membro-sportlink uri="/competities/{$value->TeamId}/{$value->District}/{$value->CompId}/{$value->ClassId}/{$value->PouleId}/schedule"]</pre>
+      {/loop}
+      {loop="$value->competities"}
+      <pre>[membro-sportlink uri="/competities/{$value->TeamId}/{$value->District}/{$value->CompId}/{$value->ClassId}/{$value->PouleId}/ranking"]</pre>
+      {/loop}
+    </td>
+  </tr>
+  {else}
+  <tr>
+    <td colspan="3">Momenteel zijn er geen teams beschikbaar.</td>
+  </tr>
+  {/loop}
+</table>
+{/if}

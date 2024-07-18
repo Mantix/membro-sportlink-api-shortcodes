@@ -1,0 +1,17 @@
+.membro-sportlink-team-slider .prev,
+.membro-sportlink-team-slider .game,
+.membro-sportlink-team-slider .next {
+  float: left;
+}
+
+.membro-sportlink-team-slider .prev {
+  margin-right: 1em;
+}
+
+.membro-sportlink-team-slider .next {
+  margin-left: 1em;
+}
+
+.membro-sportlink-team-slider .game div {
+  text-align: center;
+}
